@@ -18,12 +18,6 @@ function Calendar({ dateRange, data, colorFunc }) {
   let months = Array.from(new Array(Math.floor(days / 7)));
   // console.log({ months }); // {months : 52} => 52 'weekly' colunms, each col in topped by M, css to hide the repeats
 
-  // RANDOM COLOR CELL FILLING
-  // let min = Math.min(0, ...data.map((date) => date.value)); // ~0
-  // let max = Math.max(...data.map((date) => date.value)); // ~99
-  // let colorMultiplier = 1 / (max - min); // 0.01010101...
-  // let colorMultiplier = 0.01;
-
   let startDate = dateRange[0];
   const DayFormat = 'DDMMYYYY';
 
