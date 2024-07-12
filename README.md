@@ -46,4 +46,4 @@ Just for reference. Default greens from github contribution graph:
 
 ## Live demo
 
-Here: [my-heatmap-a-la-github](https://xx.netlify.app)
+Here: [heatmap-a-la-github](https://heatmap-a-la-github.netlify.app/)
