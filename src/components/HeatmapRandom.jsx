@@ -1,9 +1,9 @@
 import moment from 'moment';
-import Calendar from './Calendar';
+import CalendarRandom from './CalendarRandom';
 import { useEffect, useState } from 'react';
 // import { useEffect, useState } from 'react';
 
-function Heatmap() {
+function HeatmapRandom() {
   // Calendar/timeline needs a *number of days* (customisable), a *start date* derived from NUMDAYS, a *date range* derived from the the start date, and *data* for each day {date: x, value: x}
 
   const NUMDAYS = 365; // customise
@@ -22,7 +22,7 @@ function Heatmap() {
     };
   });
 
-  console.log(`data ${data}`);
+  // console.log(`data ${data}`);
   // console.log(dateRange);
 
   // CAN'T FIGURE THIS ONE OUT... without getting a huge number of re-renders
@@ -44,7 +44,7 @@ function Heatmap() {
   return (
     <>
       <h1>
-        My randomly-generated commits over the last{' '}
+        Randomly-generated commits over the last{' '}
         <span className='highlight'>{NUMDAYS}</span> days
       </h1>
       <div className='timeline-header'>
@@ -53,7 +53,7 @@ function Heatmap() {
         </h2>
         <p className='settings'>Contribution settings </p>
       </div>
-      <Calendar dateRange={dateRange} data={data} />
+      <CalendarRandom dateRange={dateRange} data={data} />
       {/* <p>
         <span>Breakdown of daily contributions (from 0 to 4): </span>
         {valuesArr.map((v, i) => (
@@ -65,4 +65,4 @@ function Heatmap() {
     </>
   );
 }
-export default Heatmap;
+export default HeatmapRandom;

@@ -1,10 +1,12 @@
 import './App.css';
-import Heatmap from './components/Heatmap';
+import HeatmapCustom from './components/HeatmapCustom';
+import HeatmapRandom from './components/HeatmapRandom';
 
 function App() {
   return (
     <>
-      <Heatmap />
+      <HeatmapRandom />
+      <HeatmapCustom />
     </>
   );
 }

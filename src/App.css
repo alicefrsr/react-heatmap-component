@@ -1,6 +1,7 @@
 #root {
-  max-width: 1280px;
+  /* max-width: 1280px; */
   margin: 0 auto;
+  line-height: 1.5;
 }
 
 :root {
@@ -23,15 +24,17 @@ html {
 }
 
 body {
-  height: 100%;
-  width: 100%;
+  max-width: 900px;
+  /* height: 100%; */
+  /* width: 100%; */
   display: flex;
+  margin: 0 auto;
   background-color: #fff;
 }
 
 h1 {
   font-size: 22px;
-  margin-bottom: 50px;
+  margin-top: 60px;
 }
 
 h2 {
@@ -46,6 +49,7 @@ h2 {
 }
 
 .timeline-header {
+  margin-top: 30px;
   display: flex;
   align-items: baseline;
   justify-content: space-between;
@@ -56,10 +60,12 @@ h2 {
 }
 
 .timeline {
+  max-width: 900px;
   border: 1px solid #d9d9d9;
   padding: 18px 30px 15px 15px;
   border-radius: 3px;
   background-color: #fff;
+  margin-bottom: 100px;
 }
 
 /* MONTHS ROW */
@@ -127,6 +133,7 @@ h2 {
   flex-wrap: wrap;
   height: 112px;
   margin-top: 1px;
+  /* color: #ebedf0; */
 }
 /* .cell {
   height: 10px;
@@ -144,8 +151,9 @@ h2 {
   border-radius: 2px;
 }
 
-.cell:hover {
-  border: 1px solid red;
+.cell-custom:hover {
+  border: 1px solid #ff9d00;
+  cursor: pointer;
 }
 
 .timeline-footer {

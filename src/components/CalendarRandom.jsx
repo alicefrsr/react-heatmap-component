@@ -1,13 +1,13 @@
 import moment from 'moment';
 import Month from './Month';
 import WeekDay from './Weekday';
-import Cell from './Cell';
+import CellRandom from './CellRandom';
 import Legend from './Legend';
 import { useState } from 'react';
 // import { useEffect } from 'react';
 // import { memo } from 'react';
 
-function Calendar({ dateRange, data }) {
+function CalendarRandom({ dateRange, data }) {
   let startDate = dateRange[0];
   // console.log(`startDate ${startDate}`);
   // console.log(`dateRange ${dateRange}`);
@@ -41,13 +41,15 @@ function Calendar({ dateRange, data }) {
           {cells.map((_, index) => {
             // assign its date to each corresponding cell
             let date = moment(startDate).add(index, 'day').format('LLL');
-            // let formattedDate = date.format('LLL');
-            // find datapoint
+            // console.log(date); // => start date
+            // dataPoint/cell/day/obj:
             let dataPoint = data.find(
               (d) => moment(date).format('LLL') === moment(d.date).format('LLL')
             );
 
-            return <Cell key={index} index={index} dataPoint={dataPoint} />;
+            return (
+              <CellRandom key={index} index={index} dataPoint={dataPoint} />
+            );
           })}
         </div>
       </div>
@@ -57,4 +59,4 @@ function Calendar({ dateRange, data }) {
     </div>
   );
 }
-export default Calendar;
+export default CalendarRandom;
