@@ -1,7 +1,6 @@
 #root {
   max-width: 1280px;
   margin: 0 auto;
-  text-align: center;
 }
 
 :root {
@@ -10,7 +9,7 @@
   font-weight: 400; */
 
   /* colors from github contribution graph */
-  --cell-color-border: #1b1f230f;
+
   --cell-color-L0-bg: #ebedf0;
   --cell-color-L1-bg: #9be9a8;
   --cell-color-L2-bg: #40c463;
@@ -23,23 +22,41 @@ html {
     Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
 }
 
-html,
 body {
   height: 100%;
   width: 100%;
   display: flex;
-  place-items: center;
 }
+
+h1 {
+  font-size: 22px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  font-size: 16px;
+  font-weight: 300;
+}
+
 #container {
   height: 514px;
   width: 930px;
   margin: 50px auto;
 }
+
+.timeline-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.cont-setting {
+  font-size: 11px;
+}
+
 .timeline {
-  margin: 20px;
-  margin-bottom: 60px;
-  border: 1px solid #c6c6c6;
-  padding: 18px 30px 28px 15px;
+  border: 1px solid #d9d9d9;
+  padding: 18px 30px 15px 15px;
   border-radius: 3px;
   background-color: #fff;
 }
@@ -51,25 +68,25 @@ body {
 }
 
 .month {
+  font-size: 11px;
   width: 10px;
   margin: 2px;
   border: 1px solid transparent;
-  font-size: 10px;
 }
 
 /* TO HIDE the 3 (out of 4) REPEATS in timeline-months  */
-.Jan ~ .Jan,
-.Feb ~ .Feb,
-.Mar ~ .Mar,
-.Apr ~ .Apr,
-.May ~ .May,
-.Jun ~ .Jun,
-.Jul ~ .Jul,
-.Aug ~ .Aug,
-.Sep ~ .Sep,
-.Oct ~ .Oct,
-.Nov ~ .Nov,
-.Dec ~ .Dec {
+.timeline-months .Jan ~ .Jan,
+.timeline-months .Feb ~ .Feb,
+.timeline-months .Mar ~ .Mar,
+.timeline-months .Apr ~ .Apr,
+.timeline-months .May ~ .May,
+.timeline-months .Jun ~ .Jun,
+.timeline-months .Jul ~ .Jul,
+.timeline-months .Aug ~ .Aug,
+.timeline-months .Sep ~ .Sep,
+.timeline-months .Oct ~ .Oct,
+.timeline-months .Nov ~ .Nov,
+.timeline-months .Dec ~ .Dec {
   visibility: hidden;
 }
 
@@ -85,13 +102,19 @@ body {
   width: 30px;
 }
 
-.weekday {
+/* weekday {
   font-size: 10px;
+  height: 10px;
+  border: 1px solid transparent;
+  margin: 2px; 
+} */
+
+.weekday {
+  font-size: 11px;
   /* same as cell: */
   height: 10px;
   border: 1px solid transparent;
   margin: 2px;
-  /* vertical-align: middle; */
 }
 
 /* DAYS, CELLS SECTION */
@@ -104,15 +127,44 @@ body {
   height: 112px;
   margin-top: 1px;
 }
-
-.cell {
+/* .cell {
   height: 10px;
   width: 10px;
   border: 1px solid var(--cell-color-border);
   margin: 2px;
   border-radius: 2px;
+} */
+
+.cell {
+  height: 10px;
+  width: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  margin: 2px;
+  border-radius: 2px;
 }
 
 .cell:hover {
-  border: 1px solid rgba(0, 0, 0, 0.5);
+  border: 1px solid red;
+}
+
+.timeline-footer {
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 500px;
+  font-size: 11px;
+  color: rgb(85, 96, 96);
+}
+
+.legend {
+  display: flex;
+  align-items: baseline;
+  gap: 1px;
+}
+
+.timeline-footer .cell {
+  height: 9px;
+  width: 9px;
+  border-radius: 3px;
 }
