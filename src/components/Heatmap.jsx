@@ -1,42 +1,68 @@
 import moment from 'moment';
 import Calendar from './Calendar';
 import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 
 function Heatmap() {
-  const [valuesSum, setValuesSum] = useState(0);
+  // Calendar/timeline needs a *number of days* (customisable), a *start date* derived from NUMDAYS, a *date range* derived from the the start date, and *data* for each day {date: x, value: x}
 
-  // Calendar/timeline needs a start date, date range, data for each day, and a color function to color each cell
   const NUMDAYS = 365; // customise
 
-  // 1 year range counting back from today's date
+  // range counting back from today's date
   let startDate = moment().subtract(NUMDAYS, 'days');
   // console.log(startDate);
 
   let dateRange = [startDate, moment().toDate()];
-  // console.log(dateRange);
 
-  // data: an obj for each day, with date and randomly generated value (0-4), each associated with 5 different colors
-  let data = Array.from(new Array(NUMDAYS)).map((_, index) => {
+  // Data: array of {NUMDAYS} days objects, with a date and a randomly generated value (0-4), each associated with 5 different colors to render each day conditionally
+  const data = Array.from(new Array(NUMDAYS)).map((_, index) => {
     return {
       date: moment(startDate).add(index, 'day'),
       value: Math.floor(Math.random() * 5), // 0-4
     };
   });
+
+  console.log(`data ${data}`);
+  // console.log(dateRange);
+
+  // CAN'T FIGURE THIS ONE OUT... without getting a huge number of re-renders
+  // const [totalContributions, setTotalContributions] = useState(0);
+  // add up all the values to get totalContributions (assuming value 1 = 1 commit, value 2 = 2 commits etc, for now)
   // useEffect(() => {
-  //   // use reduce to get valuesSum of all values
-  //   setValuesSum(195);
-  // }, [valuesSum]);
+  //   const valuesArr = data.map((day) => day.value);
+  //   const totalContributions = valuesArr.reduce((a, b) => a + b, 0);
+  //   console.log(`valuesArr ${valuesArr}`);
+
+  //   // with reduce method:
+  //   // const totalContributions = data.reduce((total, day) => {
+  //   //   return total + day.value;
+  //   // }, 0);
+
+  //   setTotalContributions(totalContributions);
+  // }, [data]);
 
   return (
     <>
-      <h1>My randomly-generated commits</h1>
+      <h1>
+        My randomly-generated commits over the last{' '}
+        <span className='highlight'>{NUMDAYS}</span> days
+      </h1>
       <div className='timeline-header'>
-        <h2>666 contributions in the last year</h2>
-        <p className='cont-setting'>Contribution settings </p>
+        <h2>
+          <span>6666</span> contributions in the last year
+        </h2>
+        <p className='settings'>Contribution settings </p>
       </div>
       <Calendar dateRange={dateRange} data={data} />
+      {/* <p>
+        <span>Breakdown of daily contributions (from 0 to 4): </span>
+        {valuesArr.map((v, i) => (
+          <span key={i} className='value'>
+            {v}
+          </span>
+        ))}
+      </p> */}
     </>
   );
 }
-
 export default Heatmap;

@@ -3,6 +3,9 @@ import Month from './Month';
 import WeekDay from './Weekday';
 import Cell from './Cell';
 import Legend from './Legend';
+import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { memo } from 'react';
 
 function Calendar({ dateRange, data }) {
   let startDate = dateRange[0];
@@ -10,7 +13,7 @@ function Calendar({ dateRange, data }) {
   // console.log(`dateRange ${dateRange}`);
 
   let days = Math.abs(dateRange[0].diff(dateRange[1], 'days')); // 365
-  console.log(`numDays ${days}`);
+  // console.log(`numDays ${days}`);
   // 1 cell for each day
   let cells = Array.from(new Array(days));
   // 1 column for each week
@@ -44,9 +47,6 @@ function Calendar({ dateRange, data }) {
               (d) => moment(date).format('LLL') === moment(d.date).format('LLL')
             );
 
-            // console.log(dataPoint);
-            // let color = colorFunc({ alpha });
-            // console.log(date);
             return <Cell key={index} index={index} dataPoint={dataPoint} />;
           })}
         </div>

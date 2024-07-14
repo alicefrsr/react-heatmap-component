@@ -51,8 +51,8 @@ h2 {
   justify-content: space-between;
 }
 
-.cont-setting {
-  font-size: 11px;
+.settings {
+  font-size: 12px;
 }
 
 .timeline {
@@ -154,7 +154,7 @@ h2 {
   align-items: center;
   justify-content: center;
   gap: 500px;
-  font-size: 11px;
+  font-size: 12px;
   color: rgb(85, 96, 96);
 }
 
@@ -168,4 +168,12 @@ h2 {
   height: 9px;
   width: 9px;
   border-radius: 3px;
+}
+
+.value {
+  margin-right: 3px;
+}
+
+.highlight {
+  color: #30a14e;
 }
