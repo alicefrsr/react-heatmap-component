@@ -41,6 +41,8 @@ function CalendarRandom({ dateRange, data }) {
           {cells.map((_, index) => {
             // assign its date to each corresponding cell
             let date = moment(startDate).add(index, 'day').format('LLL');
+            // 'LLL' = June 24, 2024 9:43 PM
+            // 'LL' = June 24, 2024
             // console.log(date); // => start date
             // dataPoint/cell/day/obj:
             let dataPoint = data.find(

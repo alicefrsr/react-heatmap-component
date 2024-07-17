@@ -39,7 +39,7 @@ Things to fix:
 
 Things to implement:
 
-- separate the 2 versions is 2 tabs or accordions or pages or something...
+- separate the 2 versions in 2 tabs or accordions or pages or something...
 - horizontal scrollbar for responsive
 - create popups of relevant dates on hover
 - configure to be able to associate an event with each cell, not necessarily a
