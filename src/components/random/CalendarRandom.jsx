@@ -1,16 +1,19 @@
 import moment from 'moment';
-import Month from './Month';
-import WeekDay from './Weekday';
-import CellCustom from './CellCustom';
-import Legend from './Legend';
+import Month from '../Month';
+import WeekDay from '../Weekday';
+import CellRandom from './CellRandom';
+import Legend from '../Legend';
 import { useState } from 'react';
+// import { useEffect } from 'react';
+// import { memo } from 'react';
 
-function CalendarCustom({ dateRange, data }) {
-  // console.log(data);
+function CalendarRandom({ dateRange, data }) {
   let startDate = dateRange[0];
+  // console.log(`startDate ${startDate}`);
+  // console.log(`dateRange ${dateRange}`);
 
-  let days = Math.abs(dateRange[0].diff(dateRange[1], 'days')); // custom
-
+  let days = Math.abs(dateRange[0].diff(dateRange[1], 'days')); // 365
+  // console.log(`numDays ${days}`);
   // 1 cell for each day
   let cells = Array.from(new Array(days));
   // 1 column for each week
@@ -36,22 +39,18 @@ function CalendarCustom({ dateRange, data }) {
 
         <div className='cells'>
           {cells.map((_, index) => {
-            // assign its date to each corresponding cell, stating from index 0, add 1 day on each iteration
-            let cellDate = moment(startDate).add(index, 'day').format('LL');
+            // assign its date to each corresponding cell
+            let date = moment(startDate).add(index, 'day').format('LLL');
             // 'LLL' = June 24, 2024 9:43 PM
             // 'LL' = June 24, 2024
             // console.log(date); // => start date
             // dataPoint/cell/day/obj:
-            let day = data.find((d) => {
-              // console.log(d);
-              return (
-                moment(cellDate).format('LL') ===
-                moment(d.cellDate).format('LL')
-              );
-            });
+            let dataPoint = data.find(
+              (d) => moment(date).format('LLL') === moment(d.date).format('LLL')
+            );
 
             return (
-              <CellCustom key={index} index={index} data={data} day={day} />
+              <CellRandom key={index} index={index} dataPoint={dataPoint} />
             );
           })}
         </div>
@@ -62,4 +61,4 @@ function CalendarCustom({ dateRange, data }) {
     </div>
   );
 }
-export default CalendarCustom;
+export default CalendarRandom;

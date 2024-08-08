@@ -37,7 +37,7 @@ function HeatmapCustom() {
         you dare.
       </p>
       <p>
-        Beware! You cannot saved your work of art at the moment, each refresh
+        Beware! You cannot save your work of art at the moment, each refresh
         will wipe the board! On a Mac, Cmd+Shift+4 will allow you to grab a
         screenshot.png.
       </p>

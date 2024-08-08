@@ -47,12 +47,15 @@ function HeatmapRandom() {
         Randomly-generated commits over the last{' '}
         <span className='highlight'>{NUMDAYS}</span> days
       </h1>
+      <p>This version generates random commits on each refresh.</p>
+
       <div className='timeline-header'>
         <h2>
           <span>6666</span> contributions in the last year
         </h2>
         <p className='settings'>Contribution settings </p>
       </div>
+
       <CalendarRandom dateRange={dateRange} data={data} />
       {/* <p>
         <span>Breakdown of daily contributions (from 0 to 4): </span>
